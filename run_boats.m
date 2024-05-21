@@ -41,8 +41,8 @@
 % PREPARE SIMULATION
 %**************************************************************************
 % Forcings datasets *******************************
- forcing_ecological='Ecological.mat';
- forcing_economical='Economical.mat';
+ forcing_ecological='Ecological_original.mat';
+ forcing_economical='Economical_original.mat';
 % Make output/restar dirs *************************
  if ~exist(boats.param.path.outdir)
     mkdir(boats.param.path.outdir)
@@ -53,9 +53,10 @@
 %**************************************************************************
  if boats.param.main.param_ens 
     load(boats.param.main.dataset_ens);
-    ens_param = modify_Fe_param(boats.param.ecology.kfe, boats.param.path.wrkdir); %f(HNLC)
+    ens_param = modify_Fe_param(boats.param.ecology.kfe, boats.param.path.wrkdir, boats.param.main.dataset_ens); %f(HNLC)
     % ---------------------------------------------------------------------
-    param_loops=length(ens_index);
+    % param_loops=length(ens_index); % JDE Only run 1 ensemble
+    param_loops=1;
  else
     param_loops=1;
  end

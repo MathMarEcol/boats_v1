@@ -67,8 +67,8 @@ function initial = initialize_domains(boats)
      % Restart file
      boats_version = boats.param.main.sim_name;
      outdir     = boats.param.path.outdir;
-%      path_lname_rest = [outdir '/' 'restart_' boats_version '_nh' boats.param.main.sname_rest];
-     path_lname_rest = [outdir '/' 'restart_' boats_version '_h' boats.param.main.sname_rest]; % || 2019-12-11: '_h' OPTION ADDED FOR RESTART FILES THAT START "IN THE MIDDLE" OF A RUN, FOR NUCLEAR FISH SIMULATIONS
+     path_lname_rest = [outdir '/' 'restart_' boats_version '_nh' boats.param.main.sname_rest];
+     % path_lname_rest = [outdir '/' 'restart_' boats_version '_h' boats.param.main.sname_rest]; % || 2019-12-11: '_h' OPTION ADDED FOR RESTART FILES THAT START "IN THE MIDDLE" OF A RUN, FOR NUCLEAR FISH SIMULATIONS
 
      %---------------------------------
      % Error if specified restart file lname_rest IS NOT IN in the working directory

@@ -1,17 +1,17 @@
-function ens_param = modify_Fe_param(kfei,path)
+function ens_param = modify_Fe_param(kfei,path, ens_d)
 %     load(['/Users/kimscherrer/Documents/PhD/BOATS/BOATS_VB1/ensemble_parameters.mat'])
 %     load(['/home/kscherrer/BOATS/BOATS_VB1_regsim/ensemble_parameters.mat'])
-    load(['' path 'ensemble_parameters.mat'])
+    load(ens_d)
 %     cd 'Nitrate Files'
 %     load(['/home/kscherrer/BOATS/BOATS_VB1_regsim/input/nitrate_files/woa05_lat']);
-    load(['' path 'input/nitrate_files/woa05_lat.mat'],'lat')
+    load(['' path 'input/nitrate_files/woa05_lat_original.mat'],'lat')
 %     load(['/home/kscherrer/BOATS/BOATS_VB1_regsim/input/nitrate_files/woa05_lon']);
-    load(['' path 'input/nitrate_files/woa05_lon.mat'],'long')
+    load(['' path 'input/nitrate_files/woa05_lon_original.mat'],'long')
 %     load(['/home/kscherrer/BOATS/BOATS_VB1_regsim/input/nitrate_files/woa05_min_no3']);
-    load(['' path 'input/nitrate_files/woa05_min_no3.mat'],'min_no3')
+    load(['' path 'input/nitrate_files/woa05_min_no3_original.mat'],'min_no3')
 %     cd ..
-    nlat = size(lat);
-    nlon = size(long);
+    nlat = size(lat,1);
+    nlon = size(long,1);
     te_no3 = zeros(5,nlat(1),nlon(1));
     tro_sca_no3 = zeros(5,nlat(1),nlon(1));
     kfe = kfei;

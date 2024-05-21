@@ -9,27 +9,41 @@
 %**************************************************************************
 % Paths *******************************************
 % Local
- boats.param.path.wrkdir = ['/Users/kimscherrer/Documents/PhD/BOATS/BOATS_VB1/Global_reg/testVB1/Nuclear_BOATS/Scherrer_et_al_PNAS_model_output/BOATS_VB1_regsim/'];
- boats.param.path.outdir = ['/Users/kimscherrer/Documents/PhD/BOATS/BOATS_VB1/Global_reg/testVB1/Nuclear_BOATS/Scherrer_et_al_PNAS_model_output/BOATS_VB1_regsim/Global_reg/'];
-% Server
-%  boats.param.path.wrkdir = ['/home/kscherrer/BOATS/BOATS_VB1_regsim/'];
-%  boats.param.path.outdir = ['/data/results/kscherrer/BOATS/BOATS_VB1_regsim/Global_reg/Global_reg'];
+ boats.param.path.wrkdir = '~/GitHub/boats_v1/';
+ boats.param.path.outdir = '~/GitHub/boats_v1/output';
 
 % Names and Switches ******************************
+
+%% SpinUp
+ % boats.param.main.sim_type     = 'nh';                                     % No Harvest 'nh' or Harvest 'h' simulation
+ % boats.param.main.reg_type     = 'oa';                                  % Regulation mode: if not Open Access 'oa' -> target regulation 'omnT'
+ % boats.param.main.incl_egg_move = 0;
+ % boats.param.main.sim_init     = 'PP';                              % Initialisation from 'PP' or else 'restart'
+ % boats.param.main.sim_name     = 'Boats180360_LEx_m250_m0_1';           % Simulation name (_nuclear for nuclear war simulations); m250 (monthly 250 years; d250: daily for 250 years); reg0C (cheapest waldron), reg0T (Top 30 Waldron)
+ % boats.param.main.model_version= '';                                    % Model version
+ % boats.param.main.save_restart = 1;                                        % Save restart: yes=1 ; no=0
+ % boats.param.main.save_output  = 0;                              % Save output: yes=1 ; no=0
+
+%% Do Run
  boats.param.main.sim_type     = 'h';                                     % No Harvest 'nh' or Harvest 'h' simulation
- boats.param.main.reg_type     = 'omnT';                                   % Regulation mode: if not Open Access 'oa' ->
-                                                                           % target regulation 'omnT' 
- boats.param.main.sim_init     = 'restart';                                % Initialisation from 'PP' or else 'restart'
- boats.param.main.sim_name     = 'Boats_VB1_nuclear_clean';                      % Simulation name (_nuclear for nuclear war simulations)
- boats.param.main.model_version= 'VB1';                                    % Model version
+ boats.param.main.reg_type     = 'oa';                                  % Regulation mode: if not Open Access 'oa' -> target regulation 'omnT'
+ boats.param.main.incl_egg_move = 0;
+ boats.param.main.sim_init     = 'restart';                              % Initialisation from 'PP' or else 'restart'
+ boats.param.main.sim_name     = 'Boats180360_LEx_m250_m0_1';           % Simulation name (_nuclear for nuclear war simulations); m250 (monthly 250 years; d250: daily for 250 years); reg0C (cheapest waldron), reg0T (Top 30 Waldron)
+ boats.param.main.model_version= '';                                    % Model version
  boats.param.main.save_restart = 0;                                        % Save restart: yes=1 ; no=0
- boats.param.main.save_output  = 1;                                        % Save output: yes=1 ; no=0
-% Simulation features *****************************
- boats.param.main.run_length   = 16;                                      % Simulation length in years %210 years burnin, 29 years 150Tg, 16 yr 5-47 Tg, 149 end year for historical baseline
+ boats.param.main.save_output  = 1;
+
+
+
+ % Simulation features *****************************
+ boats.param.main.run_length   = 250;                                      % Simulation length in years %210 years burnin, 29 years 150Tg, 16 yr 5-47 Tg, 149 end year for historical baseline
  boats.param.main.dtt          = 30;                                       % days per timestep
  boats.param.main.param_ens    = 1;                                        % Use parameters ensembles: yes=1 ; no=0
- boats.param.main.dataset_ens  = 'ensemble_parameters.mat';                % if param_ens=1 name of ensemble parameters
-%**************************************************************************
+ boats.param.main.dataset_ens  = 'ensemble_parameters_original.mat';                % if param_ens=1 name of ensemble parameters
+ boats.param.main.nLat         = 180; % JDE - This shouldn't be here. It should detect the nLat/nLon from the files
+ boats.param.main.nLon         = 360;
+ %**************************************************************************
 % END MAIN TUNABLE PARAMETERS
 %**************************************************************************
  
